@@ -71,30 +71,30 @@
             margin: 0 auto;
         }
 
-      .authors {
-          display: block;
-          font-size: 12px;
+        .authors {
+            display: block;
+            font-size: 12px;
             opacity: 0.5;
             font-weight: 300;
             letter-spacing: 0.5px;
-            margin-top: 4px;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .discord-stats-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            width: auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             margin-bottom: 20px;
- }
-      .discord-stats-bar {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           gap: 15px;
-           width: auto;
-           background: rgba(255, 255, 255, 0.05);
-           padding: 5px 15px;
-           border-radius: 20px;
-           font-size: 11px;
-           font-weight: 500;
-           border: 1px solid rgba(255, 255, 255, 0.05);
-           margin-top: -40px;
-           margin-bottom: 10px;
-       }
+        }
 
         .status-item {
             display: flex;
@@ -127,6 +127,15 @@
         .discord { background: #5865F2; }
         .discord:hover { box-shadow: 0 0 12px #5865F2; transform: translateY(-2px); }
 
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
         .icons { display: flex; justify-content: center; gap: 18px; width: 100%; margin-top: 25px; flex-wrap: wrap; }
         .icons a { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
         .icons img { width: 20px; filter: brightness(0) invert(1) drop-shadow(0 0 6px #ffffff); }
@@ -143,10 +152,12 @@
     <div class="title">Helium Development</div>
 
     <div class="info-block">
-        <div class="subtitle">Addon para Meteor Client 1.21.11 enfocado en anarquía y exploits. 100% código abierto.
+        <div class="subtitle">Addon para Meteor Client 1.21.11 enfocado en anarquía y exploits. 100% código abierto.</div>
+        <div class="authors">
+            By ItsDarexMC & Donalp012<br>
+            <span style="color: #ffaa00; opacity: 0.8;">Aún no hay ninguna versión oficial disponible.</span>
         </div>
-        <div class="authors">By ItsDarexMC & Donalp012<br>Aun no hay ninguna version oficial en "Descargar Addon".
-</div>
+    </div>
       
     <div class="discord-stats-bar">
         <div class="status-item">
@@ -169,6 +180,9 @@
         <a href="heliumclient/" style="text-decoration: none;">
             <button class="btn buy">Adquirir Cliente (10 €)</button>
         </a>
+        <a href="https://github.com/ItsDarexMC?tab=repositories" target="_blank" style="text-decoration: none;">
+            <button class="btn secondary-btn">Ver otros proyectos</button>
+        </a>
     </div>
 
     <div class="icons">
@@ -182,7 +196,6 @@
 <div class="footer">© 2026 Helium Development. All rights reserved.</div>
 
 <script>
-
     (function() {
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
@@ -237,7 +250,6 @@
       resizeCanvas(); draw();
     })();
 
-    // Discord Stats API
     (function() {
         const inviteCode = 'BMWbAHC28p';
         async function updateStats() {
