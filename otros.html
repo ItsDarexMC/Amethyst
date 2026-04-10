@@ -18,9 +18,7 @@
       --helium-2: #e65100;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       height: 100%;
@@ -48,21 +46,30 @@
       z-index: 1;
       width: 100%;
       max-width: 420px;
-      padding: 40px 32px;
+      padding: 40px 30px;
       border-radius: 26px;
       background: var(--card);
       backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
       border: 1px solid var(--border);
       text-align: center;
       box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .title {
       font-size: 24px;
       font-weight: 600;
-      margin-bottom: 28px;
-      letter-spacing: 0.4px;
+      margin-bottom: 26px;
     }
 
     .buttons {
@@ -72,18 +79,41 @@
     }
 
     .btn {
+      position: relative;
       padding: 15px;
       border-radius: 14px;
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
       color: #fff;
-      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.08);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .btn:hover::after {
+      opacity: 1;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    .icon {
+      font-size: 14px;
+      opacity: 0.8;
     }
 
     .amethyst {
@@ -96,11 +126,25 @@
       box-shadow: 0 6px 18px rgba(255, 115, 0, 0.35);
     }
 
+    .btn.active {
+      outline: 1px solid rgba(255,255,255,0.25);
+    }
+
     .footer {
-      margin-top: 26px;
+      margin-top: 24px;
       font-size: 11px;
       color: var(--text-secondary);
-      letter-spacing: 0.8px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        margin: 20px;
+        padding: 30px 22px;
+      }
+
+      .title {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -112,11 +156,18 @@
   <div class="title">Selecciona un proyecto</div>
 
   <div class="buttons">
-    <a href="index.html" class="btn amethyst">Amethyst Development</a>
-    <a href="helium.html" class="btn helium">Helium Development</a>
+    <a href="index.html" class="btn amethyst active">
+      <span class="icon">◆</span>
+      Amethyst Development
+    </a>
+
+    <a href="helium.html" class="btn helium">
+      <span class="icon">●</span>
+      Helium Development
+    </a>
   </div>
 
-  <div class="footer">Â© 2026 ItsDarexMC</div>
+  <div class="footer">© 2026 ItsDarexMC</div>
 </div>
 
 <script>
