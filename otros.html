@@ -14,8 +14,8 @@
       --border: rgba(255,255,255,0.08);
       --text-secondary: rgba(255,255,255,0.5);
       --amethyst: #5a0096;
-      --celium-1: #9b111e;
-      --celium-2: #9b111e;
+      --celium-1: #CC0000;
+      --celium-2: #CC0000;
     }
 
     * { box-sizing: border-box; }
@@ -122,9 +122,8 @@
     }
 
     .celium {
-  background: linear-gradient(45deg, #700b14, #9b111e);
-  box-shadow: 0 6px 18px rgba(155, 17, 30, 0.35);
-}
+      background: linear-gradient(45deg, #800000, #CC0000);
+      box-shadow: 0 6px 18px rgba(204, 0, 0, 0.35);
     }
 
     .btn.active {
@@ -158,12 +157,10 @@
 
   <div class="buttons">
     <a href="index.html" class="btn amethyst active">
-      <span class=>
       Amethyst Development
     </a>
 
     <a href="celium.html" class="btn celium">
-      <span class=>
       Celium Development
     </a>
   </div>
@@ -179,7 +176,7 @@
   let w, h, particles;
 
   const config = {
-    colors: ['#8a2be2', '#9b111e'],
+    colors: ['#8a2be2', '#CC0000'],
     connectDist: 140,
     maxVelocity: 0.18
   };
