@@ -86,6 +86,10 @@ html,body{
   color:#fff;
 }
 
+.btn:active{
+  transform:scale(0.97);
+}
+
 .download{background:#5a0096}
 
 .download:hover{
@@ -105,12 +109,16 @@ html,body{
 .toggle:hover{background:rgba(90,0,150,.4)}
 
 .tutorial{
-  display:none;
-  margin-top:10px;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:all .3s ease;
 }
 
 .tutorial.active{
-  display:block;
+  max-height:500px;
+  opacity:1;
+  margin-top:10px;
 }
 
 .tutorial-title{
@@ -171,7 +179,7 @@ html,body{
       Esto nos permite mantener el addon completamente gratuito para todos los usuarios y, al mismo tiempo, seguir mejorando su calidad y desarrollo de forma constante.
     </div>
 
-    <a href="https://work.ink/2m5S/AmethystAddon" class="btn download" target="_blank">
+    <a href="https://work.ink/2m5S/AmethystAddon" class="btn download" target="_blank" onclick="loading()">
       Descargar Addon
     </a>
 
@@ -207,7 +215,21 @@ html,body{
 <script>
 function toggleTutorial(){
   const t=document.getElementById('tutorial');
+  const btn=document.querySelector('.toggle');
+
   t.classList.toggle('active');
+
+  if(t.classList.contains('active')){
+    btn.textContent='Ocultar tutorial';
+    setTimeout(()=>{t.scrollIntoView({behavior:'smooth',block:'start'})},200);
+  }else{
+    btn.textContent='Mostrar tutorial';
+  }
+}
+
+function loading(){
+  const btn=document.querySelector('.download');
+  btn.textContent='Cargando...';
 }
 </script>
 
