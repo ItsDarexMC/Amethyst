@@ -64,6 +64,7 @@
             font-size: 36px;
             font-weight: 700;
             text-align: center;
+            text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4);
         }
 
         .subtitle {
@@ -97,6 +98,7 @@
             color: white;
             display: block;
             box-sizing: border-box;
+            transition: 0.2s;
         }
 
         .discord-stats-btn {
@@ -104,9 +106,19 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        .discord-stats-btn:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+
         .download { background: #3c0066; }
+        .download:hover { box-shadow: 0 0 12px #3c0066; transform: translateY(-2px); }
+
         .buy { background: linear-gradient(45deg, #ffb300, #ff7300); }
+        .buy:hover { box-shadow: 0 0 12px #ff9800; transform: translateY(-2px); }
+
         .discord { background: #5865F2; }
+        .discord:hover { box-shadow: 0 0 12px #5865F2; transform: translateY(-2px); }
 
         .icons {
             display: flex;
@@ -124,11 +136,17 @@
             justify-content: center;
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .icons a:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.1);
         }
 
         .icons img {
             width: 20px;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 6px #ffffff);
         }
 
         .footer {
